@@ -1,0 +1,1116 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="通过示例入门 TypeScript 语言和 NestJS Web 框架">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-typescript-nestjs-sept-2026/%E5%AE%89%E8%A3%85-nestjs-%E6%9C%8D%E5%8A%A1%E5%99%A8.html">
+      
+      
+        <link rel="prev" href="%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html">
+      
+      
+        <link rel="next" href="typescript-%E7%9A%84-http-%E5%8A%9F%E8%83%BD.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>4. 安装 NestJS 服务器 - 通过示例入门 TypeScript 语言和 NestJS Web 框架</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "通过示例入门 TypeScript 语言和 NestJS Web 框架";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-安装-nestjs-服务器" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="通过示例入门 TypeScript 语言和 NestJS Web 框架" class="md-header__button md-logo" aria-label="通过示例入门 TypeScript 语言和 NestJS Web 框架" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            通过示例入门 TypeScript 语言和 NestJS Web 框架
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. 安装 NestJS 服务器
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-typescript-nestjs-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="通过示例入门 TypeScript 语言和 NestJS Web 框架" class="md-nav__button md-logo" aria-label="通过示例入门 TypeScript 语言和 NestJS Web 框架" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    通过示例入门 TypeScript 语言和 NestJS Web 框架
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-typescript-nestjs-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E7%AE%80%E4%BB%8B.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E6%90%AD%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 搭建工作环境
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 基础知识
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 安装 NestJS 服务器
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="%E5%AE%89%E8%A3%85-nestjs-%E6%9C%8D%E5%8A%A1%E5%99%A8.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 安装 NestJS 服务器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-安装-laragon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. 安装 Laragon
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-nestjs-服务器的安装与配置" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. NestJS 服务器的安装与配置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-创建数据库" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. 创建数据库
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-启动-nestjs-服务器" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4. 启动 NestJS 服务器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-html-税款计算服务器的测试" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5. HTML 税款计算服务器的测试
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-税款计算服务器的-json-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6. 税款计算服务器的 jSON API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6. 税款计算服务器的 jSON API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#461-postman-测试" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.1. Postman 测试
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#462-curl-测试" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.2. curl 测试
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typescript-%E7%9A%84-http-%E5%8A%9F%E8%83%BD.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. TypeScript 的 HTTP 功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E7%A8%8E%E6%AC%BE%E8%AE%A1%E7%AE%97%E6%9C%8D%E5%8A%A1%E7%9A%84-http-%E5%AE%A2%E6%88%B7%E7%AB%AF.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 税款计算服务的 HTTP 客户端
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BF%E9%97%AE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 数据库访问
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nestjs-web-%E6%A1%86%E6%9E%B6%E5%88%86%E6%AD%A5%E5%85%A5%E9%97%A8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. NestJS Web 框架分步入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6-nestjs-%E4%B8%AD%E7%9A%84%E7%A8%8E%E9%A2%9D%E8%AE%A1%E7%AE%97%E6%9C%8D%E5%8A%A1%E5%99%A8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 案例研究：NestJS 中的税额计算服务器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E7%BB%93%E8%AE%BA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 结论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="refheadingtoc169713055526765" name="refheadingtoc169713055526765" class="odt-bookmark-anchor"></span></p>
+<h1 id="4-安装-nestjs-服务器">4. <span style="color: #2e74b5">安装 NestJS 服务器</span></h1>
+<p><strong>注意</strong>：下文有时会提到一个 PHP 服务器，即课程 [Introduction to the PHP7 Language Through Examples] 中提到的那个服务器。NestJS 服务器实现了与该 PHP 服务器相同的服务。</p>
+<p>我们将讨论 TypeScript 的 HTTP 功能——即让您能够查询 Web 服务器的功能。为了测试，我们需要一个 Web 服务器。我们将使用在 <a href="%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6-nestjs-%E4%B8%AD%E7%9A%84%E7%A8%8E%E9%A2%9D%E8%AE%A1%E7%AE%97%E6%9C%8D%E5%8A%A1%E5%99%A8.html#refheadingtoc355862534233595"><u><span style="color: #0563c1">“案例研究”</span></u></a> 一节<a href="%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6-nestjs-%E4%B8%AD%E7%9A%84%E7%A8%8E%E9%A2%9D%E8%AE%A1%E7%AE%97%E6%9C%8D%E5%8A%A1%E5%99%A8.html#refheadingtoc355862534233595"><u><span style="color: #0563c1">中开发的服务器：NestJS 中的税款计算服务器</span></u></a><mark style="background-color: #fff5ce">。 </mark>该服务器托管了一个 jSON 服务，提供以下服务：</p>
+<ul>
+<li><strong><span style="color: #9a3412">[init-session] </span></strong>—— <span style="color: #9a3412">GET main.php?action=init-session&amp;type=json </span>——告诉服务器我们需要 jSON 响应；</li>
+<li><strong><span style="color: #9a3412">[authenticate-user] </span></strong>—— <span style="color: #9a3412">POST main.php?action=authenticate-user：</span>两个 <strong>提交的</strong> 参数 <span style="color: #9a3412">[user, password] </span>决定是否授权连接到 jSON 服务。默认情况下，凭据为 [admin, admin]；</li>
+<li><strong><span style="color: #9a3412">[calculate-tax] </span></strong>—— <span style="color: #9a3412">POST main.php?action=calculate-tax：</span> 提交的参数 <span style="color: #9a3412">[married, children, salary] </span>用于计算税款：<ul>
+<li><strong>married</strong>：已婚为“yes”，否则为“no”；</li>
+<li><strong>children</strong>：纳税人的子女数量；</li>
+<li><strong>salary</strong>：纳税人的年薪；</li>
+</ul>
+</li>
+<li><strong><span style="color: #9a3412">[list-simulations] </span></strong>—— <span style="color: #9a3412">GET main.php?action=list-simulations </span>——列出自会话开始以来执行的模拟；</li>
+<li><strong><span style="color: #9a3412">[delete-simulation] </span></strong>—— <span style="color: #9a3412">GET main.php?action=delete-simulation&amp;number=x </span>——从模拟列表中删除第 x 号模拟；</li>
+<li><strong><span style="color: #9a3412">[get-admindata] </span></strong>—— <span style="color: #9a3412">GET main.php?action=get-admindata </span> ——将与服务器关联的整个数据库检索到一个 jSON 对象中；</li>
+<li><strong><span style="color: #9a3412">[end-session] </span></strong>—— <span style="color: #9a3412"> GET main.php?action=end-session：</span>结束会话。要开始新的会话，用户必须发出上述“init-session”命令；</li>
+</ul>
+<p>我们现在将介绍如何安装该服务器。如果您不想安装该服务器，请直接跳到 <a href="typescript-%E7%9A%84-http-%E5%8A%9F%E8%83%BD.html#refheadingtoc172643055526765"><u><span style="color: #0563c1">“TypeScript 的 HTTP 功能”</span></u></a>一节。您将无法在真实环境中测试这些脚本，但可以查看其代码。</p>
+<h2 id="41-安装-laragon">4.1. <span style="color: #1f4d78">安装 Laragon</span></h2>
+<p>截至 2026 年 9 月，可以在 URL [Download Laragon – Fast &amp; Modern Dev Environment ] 获取 Laragon 工具。Laragon 包含可用于安装 PHP 服务器和 MySQL 数据库管理系统的工具：</p>
+<p><img src="images/10000000000006440000030C86481A8B.png" width="643" height="312" style="width:17cm;height:8.266cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006440000030C86481A8B.png" /></p>
+<ul>
+<li>在 [1] 中，是一个 Apache Web 服务器；</li>
+<li>在 [2] 中，是 MySQL 数据库管理系统；</li>
+<li>在 [3] 中，是一个我们不会使用的邮件工具；</li>
+<li>[4] 启动所有服务（Apache、MySQL、MailPit）；</li>
+<li>[5] 在 URL [http://localhost] 处显示网页。默认情况下，该 URL 指向 &lt;laragon-install&gt;\www 文件夹，其中 &lt;laragon-install&gt; 是 Laragon 的安装文件夹；</li>
+<li>在 [6] 中，启动 HeidiSQL 工具，它可以管理 MySQL 数据库。我们将使用这个工具来创建税款计算服务器所使用的数据库；</li>
+<li>在 [7] 中，打开一个终端；Laragon 所需的所有二进制文件都在 PATH 中；</li>
+<li>在 [8] 中，打开与 URL [http://localhost] 关联的文件夹所在的 Windows 资源管理器；</li>
+</ul>
+<p>Laragon 安装文件夹包含以下内容：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002DB00000324CA05B23E.png" width="314" height="345" style="display:inline-block; margin:4px;width:8.306cm;height:9.133cm;" class="odt-zoomable" data-zoom-src="images/10000000000002DB00000324CA05B23E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<ul>
+<li>在 [1] 中，[bin] 文件夹包含许多应用程序：</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000329000004CE02139058.png" width="404" height="615" style="display:inline-block; margin:4px;width:10.7cm;height:16.27cm;" class="odt-zoomable" data-zoom-src="images/1000000000000329000004CE02139058.png" /></td></tr></table>
+
+<ul>
+<li>在 [1] 中，是 Apache Web 服务器；</li>
+<li>在 [2] 中，是一个命令行终端；</li>
+<li>在 [3] 中，是一个 [git] 客户端，可用于管理项目的不同版本；</li>
+<li>在 [4] 中，是一个数据库管理器；</li>
+<li>[5]，是一个电子邮件管理器；</li>
+<li>在 [6] 中，是 MySQL 数据库管理系统；</li>
+<li>[7]，是另一个 Web 服务器；</li>
+<li>在 [8] 中，是用于运行 JavaScript 脚本的 [node.js]；</li>
+<li>[9]，是一个文本编辑器；</li>
+<li>在 [10] 中，是 PHP 解释器；</li>
+<li>在 [11] 中，是 [Python] 解释器；</li>
+<li>[12]，是一个缓存服务器；</li>
+</ul>
+<p>Laragon 自带一套完整的开发环境。在本课程中，我们只使用 MySQL 数据库管理系统 [6] 和 [heidisql] 来以图形方式管理它；</p>
+<h2 id="42-nestjs-服务器的安装与配置">4.2. <span style="color: #1f4d78">NestJS 服务器的安装与配置</span></h2>
+<p>本课程脚本目录中的 <span style="color: #9a3412"><code>nestjs-case-study</code> </span>文件夹里有一个用于高度简化的税款计算的 NestJS 服务器：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nestjs-case-study/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── package.json
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── nest-cli.json
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── .env.example
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── create_dbtaxes.sql
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── src/
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   ├── main.ts
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   ├── main.controller.ts
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   ├── app.module.ts
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   ├── actions/
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│   ├── config/
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│   ├── entities/
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│   ├── filters/
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│   ├── model/
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│   ├── responses/
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│   ├── session/
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│   └── utilities/
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>└── views/
+</code></pre></div>
+<p>如果您已经为整个目录树安装了依赖（在根目录下通过 <span style="color: #9a3412"><code>npm install</code> </span>并借助本文档简介中所述的 npm <span style="color: #9a3412">workspaces </span>完成），则 <span style="color: #9a3412"><code>nestjs-case-study</code> </span>文件夹中已经包含其 <span style="color: #9a3412"><code>node\_modules</code></span>。否则，请进入该文件夹并运行：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm install
+</code></pre></div>
+<div style="margin:0 0 0.75em 0; background-color:#fff4ce; padding:0.35em 0.6em"><b>注意：</b>如果您按照简介中所述进行了批量安装（在 <span style="color: #9a3412">`npm install` </span>的根目录 `<span style="color: #9a3412">typescript-nestjs-course-scripts`</span> 下运行），则这一步已经完成：请直接进入下面的配置。</div>
+
+<p>服务器需要一个 <span style="color: #9a3412">.env </span>文件，用于指定 Laragon 创建的 MySQL 数据库（见上文）的连接设置以及监听端口。将提供的 <span style="color: #9a3412">.env.example </span>文件复制为 <span style="color: #9a3412">.env </span>，然后进行自定义：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">PORT</span><span class="o">=</span><span class="s">3000</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">TAX_DATA_SOURCE</span><span class="o">=</span><span class="s">mysql</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">DB_HOST</span><span class="o">=</span><span class="s">localhost</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">DB_PORT</span><span class="o">=</span><span class="s">3306</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="na">DB_NAME</span><span class="o">=</span><span class="s">dbtaxes-2019</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="na">DB_USER</span><span class="o">=</span><span class="s">admtaxes</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="na">DB_PASSWORD</span><span class="o">=</span><span class="s">pwdtaxes</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="na">CORS_ALLOWED</span><span class="o">=</span><span class="s">true</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="na">SESSION_SECRET</span><span class="o">=</span><span class="s">change-me-in-production</span>
+</code></pre></div>
+<ul>
+<li><span style="color: #9a3412">PORT</span>：NestJS 服务器的监听端口（默认值为<span style="color: #9a3412"> 3000</span>）。</li>
+<li><span style="color: #9a3412">TAX_DATA_SOURCE：mysql，表示使用</span>下面创建的数据库；</li>
+<li><span style="color: #9a3412">DB_HOST</span>、<span style="color: #9a3412">DB_PORT</span>、<span style="color: #9a3412">DB_NAME</span>、<span style="color: #9a3412">DB_USER</span>、<span style="color: #9a3412">DB_PASSWORD</span>：我们将用 HeidiSQL 创建的 <span style="color: #9a3412">dbtaxes-2019</span> 数据库的连接参数（见下文）——与上面目录树中所示的 <span style="color: #9a3412">create_dbtaxes.sql</span> 脚本中定义的凭据相同；</li>
+<li><span style="color: #9a3412">CORS_ALLOWED</span>：允许来自运行在不同端口上的 TypeScript 客户端的 CORS（跨域）调用。</li>
+<li><span style="color: #9a3412">SESSION_SECRET</span>：用于签名会话 Cookie 的密钥——如果服务器将来要公开访问，请更改它。</li>
+</ul>
+<h2 id="43-创建数据库">4.3. <span style="color: #1f4d78">创建数据库</span></h2>
+<p>要创建 NestJS 服务器所需的 MySQL 数据库，我们使用 Laragon 的一个选项：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006440000030C352A3F89.png" width="503" height="244" style="display:inline-block; margin:4px;width:13.301cm;height:6.468cm;" class="odt-zoomable" data-zoom-src="images/10000000000006440000030C352A3F89.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<ul>
+<li>在 [1] 中，必须启动所有服务；</li>
+<li>在 [2] 中，[Database] 选项可用于管理数据库；</li>
+</ul>
+<p>[Database] 选项会启动一个名为 HeidiSQL 的实用工具：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000008D2000003C91FBD37B4.png" width="621" height="266" style="display:inline-block; margin:4px;width:16.431cm;height:7.05cm;" class="odt-zoomable" data-zoom-src="images/10000000000008D2000003C91FBD37B4.png" /></td></tr></table>
+
+<ul>
+<li>在 [1] 中，可以选择各种数据库管理系统。提供的默认值是 MySQL 数据库管理系统。这样就可以了；</li>
+<li>在 [2] 中，登录 HeidiSQL；</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000003FD0000018A35CBA47C.png" width="357" height="138" style="display:inline-block; margin:4px;width:9.449cm;height:3.649cm;" class="odt-zoomable" data-zoom-src="images/10000000000003FD0000018A35CBA47C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002A4000001C70316A390.png" width="237" height="159" style="display:inline-block; margin:4px;width:6.26cm;height:4.21cm;" class="odt-zoomable" data-zoom-src="images/10000000000002A4000001C70316A390.png" /></td></tr></table>
+
+<ul>
+<li>在 [1-2] 中，运行 SQL 文件，然后选择 [create_dbtaxes.sql] 文件，您可以在 [nestjs-case-study] 文件夹中找到它：</li>
+</ul>
+<p><img src="images/100000000000018B0000020AC3036437.png" width="198" height="261" style="width:5.226cm;height:6.906cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018B0000020AC3036437.png" /></p>
+<p>运行 [2] 文件将创建税款计算服务器所使用的 [dbtaxes-2019] 数据库。要查看它，请在 HeidiSQL 中按 F5 刷新显示：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002B300000226D53BFF4F.png" width="314" height="250" style="display:inline-block; margin:4px;width:8.306cm;height:6.609cm;" class="odt-zoomable" data-zoom-src="images/10000000000002B300000226D53BFF4F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>数据库 [dbtaxes-2019] 已创建。</p>
+<h2 id="44-启动-nestjs-服务器">4.4. <span style="color: #1f4d78">启动 NestJS 服务器</span></h2>
+<p>一旦 <span style="color: #9a3412">.env </span>文件就位（并且数据库已创建），请在 [nestjs-case-study] 文件夹的根目录下打开一个终端，然后编译并启动服务器：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>npm run build
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>npm run start:prod
+</code></pre></div>
+<p>在开发时，若要在每次修改源代码后自动重启，请使用：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>npm run start:dev
+</code></pre></div>
+<p>在这两种情况下，控制台都会显示：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[Nest] ... [NestFactory] Starting Nest application...
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>[Nest] ... [InstanceLoader] AppModule dependencies initialized
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>[Nest] ... [RoutesResolver] MainController {/}:
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>[Nest] ... [RouterExplorer] Mapped {/main.php, ALL} route
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>[Nest] ... [NestApplication] Nest application successfully started
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Tax calculation server (NestJS) started on http://localhost:3000
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>JSON entry point: http://localhost:3000/main.php?action=init-session&amp;type=json
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>HTML entry point: http://localhost:3000/main.php?action=init-session&amp;type=html
+</code></pre></div>
+<p>NestJS 服务器只有一个入口点（<span style="color: #9a3412">main.php</span>，为兼容起见保留了该名称，尽管这里用的是 NestJS），它接收所有请求，并通过一个 <span style="color: #9a3412">“action”</span> 请求参数来选择要执行的处理：</p>
+<h2 id="45-html-税款计算服务器的测试">4.5. <span style="color: #4f81bd">HTML<span style="color: #1f4d78"> 税款计算服务器的测试</span></span></h2>
+<p>如果您尚未这样做，请启动 Laragon 的所有服务（用于 MySQL）以及 NestJS 服务器（<span style="color: #9a3412">npm run start:prod </span>或 <span style="color: #9a3412">npm run start:dev</span>；见上文）。然后，在浏览器中请求 URL<span style="color: #9a3412"> http://localhost:3000/main.php?action=init-session&amp;type=html</span> ——这与 PHP 服务器的 <span style="color: #9a3412"><code>init-session</code> </span>操作相同，带有相同的 <span style="color: #9a3412"><code>type=html</code> </span>参数，只是端口为 3000：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000046A000001FE5F7732B2.png" width="529" height="239" style="display:inline-block; margin:4px;width:14cm;height:6.318cm;" class="odt-zoomable" data-zoom-src="images/100000000000046A000001FE5F7732B2.png" /></td></tr></table>
+
+<p>凭据是 <span style="color: #9a3412">admin/admin</span>，与 PHP 服务器完全相同——它们以相同的方式定义，位于服务器代码中，而不是 <span style="color: #9a3412">config.json</span> 中。输入它们：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000046A000002450B06427B.png" width="529" height="272" style="display:inline-block; margin:4px;width:14cm;height:7.198cm;" class="odt-zoomable" data-zoom-src="images/100000000000046A000002450B06427B.png" /></td></tr></table>
+
+<p>填写表单，然后提交。您将看到以下页面：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000046A000002F763287DD5.png" width="529" height="355" style="display:inline-block; margin:4px;width:14cm;height:9.403cm;" class="odt-zoomable" data-zoom-src="images/100000000000046A000002F763287DD5.png" /></td></tr></table>
+
+<p>税款计算结果已显示——这个页面确实使用了我们刚刚创建的数据库。左侧菜单中的“模拟列表”链接会显示本次会话的计算历史：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000046A000001B2FA555E9A.png" width="529" height="203" style="display:inline-block; margin:4px;width:14cm;height:5.376cm;" class="odt-zoomable" data-zoom-src="images/100000000000046A000001B2FA555E9A.png" /></td></tr></table>
+
+<p>如果您得到了这些结果，说明 NestJS 税款计算服务器及其 MySQL 数据库工作正常。我们现在可以用 TypeScript 客户端查询该服务器了。为此，我们将使用服务器的 jSON 版本。</p>
+<h2 id="46-税款计算服务器的-json-api">4.6. <span style="color: #1f4d78">税款计算服务器的 jSON API</span></h2>
+<h3 id="461-postman-测试">4.6.1. <span style="color: #4f81bd"><span style="color: #2e74b5">Postman</span> 测试</span></h3>
+<p>PHP 服务器是使用 Postman 桌面工具测试的。同一个请求集合（<span style="color: #9a3412">tax-servers-tests.postman_collection.json，位于 nestjs-course 文件夹中</span>）在 NestJS 服务器上的工作方式完全相同：jSON API 完全一样——相同的操作、相同的参数、相同的 <span style="color: #9a3412">状态</span>码。在 Postman 中，只需更改每个请求的端口（<span style="color: #9a3412">80 </span>→<span style="color: #9a3412"> 3000</span>），或者更简单地，如果您已将 <span style="color: #9a3412">基础 URL </span>在集合中定义为变量，则直接修改它。</p>
+<p>Postman 工具可在 URL [https://www.postman.com/downloads/] 获取。您可能需要创建一个账户。</p>
+<p>启动所有 Laragon 服务，然后打开 Postman 桌面应用：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002DD000001CDECEE907C.png" width="294" height="184" style="display:inline-block; margin:4px;width:7.766cm;height:4.881cm;" class="odt-zoomable" data-zoom-src="images/10000000000002DD000001CDECEE907C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000020D0000014C25D78584.png" width="263" height="166" style="display:inline-block; margin:4px;width:6.946cm;height:4.392cm;" class="odt-zoomable" data-zoom-src="images/100000000000020D0000014C25D78584.png" /></td></tr></table>
+
+<ul>
+<li>在 [1-2] 中，创建一个 HTTP 请求来查询税款计算服务器；</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000489000001E8A75DCF2D.png" width="465" height="195" style="display:inline-block; margin:4px;width:12.291cm;height:5.159cm;" class="odt-zoomable" data-zoom-src="images/1000000000000489000001E8A75DCF2D.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<ul>
+<li>在 [1] 中，您可以为 HTTP 请求命名。您可以保存它并在以后检索；</li>
+<li>在 [2] 中：输入要查询的服务器的 URL；</li>
+<li>在 [3] 中：选择 HTTP 请求类型。接下来我们将使用其中的两种：GET 和 POST；</li>
+<li>在 [4] 中：如果您的查询带有 [?param1=val1&amp;param2=val2&amp;…] 形式的参数，可以在这里定义它们；</li>
+<li>在 [5] 中：如果查询类型是 POST，则在这里定义提交的值；</li>
+</ul>
+<p>在 [nestjs-course] 中，您会找到一个针对税款计算服务器的 HTTP 请求集合，可以将其导入 POSTMAN。</p>
+<p><img src="images/100000000000026C000001A4C372851A.png" width="310" height="210" style="width:8.202cm;height:5.556cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000026C000001A4C372851A.png" /></p>
+<p>操作如下。在 Postman 中，按 [Ctrl-O]：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000003F80000026C727A3698.png" width="406" height="248" style="display:inline-block; margin:4px;width:10.749cm;height:6.56cm;" class="odt-zoomable" data-zoom-src="images/10000000000003F80000026C727A3698.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<ul>
+<li>使用链接 [1] 从 [nestjs-course] 文件夹中导入文件 [tax-servers-tests.postman_collection.json]：</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000023A0000036167185DE7.png" width="285" height="432" style="display:inline-block; margin:4px;width:7.541cm;height:11.441cm;" class="odt-zoomable" data-zoom-src="images/100000000000023A0000036167185DE7.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<ul>
+<li>在 [1] 中，是所导入集合的名称；</li>
+<li>在 [2] 中，是其内容。这是一个发往税款计算服务器（jSON）的（HTTP）请求列表；</li>
+</ul>
+<p>例如，我们来看名为 [init-session-json-700] 的请求。它与服务器发起一个 jSON 会话：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000058B0000023A657300CB.png" width="426" height="171" style="display:inline-block; margin:4px;width:11.261cm;height:4.524cm;" class="odt-zoomable" data-zoom-src="images/100000000000058B0000023A657300CB.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<ul>
+<li>在 [1] 中，HTTP 请求是 GET；</li>
+<li>在 [2] 中，是被请求的 URL。它请求与服务器发起 jSON 对话；</li>
+<li>在 [3-4] 中，我们看到 GET 的参数；</li>
+<li>在 [5] 中，将请求发送到税款计算服务器；</li>
+</ul>
+<p>发送请求之前，请确保已启动 Laragon 服务。服务器的 jSON 响应如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000003D90000017FE959F671.png" width="457" height="178" style="display:inline-block; margin:4px;width:12.102cm;height:4.706cm;" class="odt-zoomable" data-zoom-src="images/10000000000003D90000017FE959F671.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>现在使用名为 [init-session-703] 的请求：</p>
+<p><img src="images/10000000000003EE000002034E3A763A.png" width="488" height="251" style="width:12.91cm;height:6.629cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003EE000002034E3A763A.png" /></p>
+<p>请求 [1-3] 是无效的。参数必须具有 [?action=xx&amp;type=yy] 的形式，其中“type”可以是“html”、“xml”或“json”。类型“x”将不会被识别。服务器的 jSON 响应如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000049C0000014E5C6DDB27.png" width="374" height="106" style="display:inline-block; margin:4px;width:9.904cm;height:2.803cm;" class="odt-zoomable" data-zoom-src="images/100000000000049C0000014E5C6DDB27.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>重新发送请求 [init-session-json-700] 以重新启动一个 jSON 会话。然后发送请求 [authenticate-user-200] 来进行身份验证：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000041F00000213B67C9E9D.png" width="496" height="248" style="display:inline-block; margin:4px;width:13.12cm;height:6.572cm;" class="odt-zoomable" data-zoom-src="images/100000000000041F00000213B67C9E9D.png" /></td></tr></table>
+
+<ul>
+<li>在 [1] 中，请求是 POST；</li>
+<li>在 [2] 中，是身份验证请求的 URL；</li>
+<li>在 [3] 中，是 POST 的主体，其中包含提交的值；</li>
+<li>[4-5]，是两个提交的值。它们是应用程序管理员的凭据。它们定义在服务器的 [config.service.ts] 文件中；</li>
+</ul>
+<p><img src="images/10000000000001B10000021161CB11A6.png" width="217" height="265" style="width:5.729cm;height:6.999cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001B10000021161CB11A6.png" /></p>
+<p>服务器的 jSON 响应如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000042C00000153667C5305.png" width="427" height="136" style="display:inline-block; margin:4px;width:11.299cm;height:3.59cm;" class="odt-zoomable" data-zoom-src="images/100000000000042C00000153667C5305.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>身份验证通过后，您就可以进行税款计算了。为此，请使用查询 [calculate-tax-300]：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000003E400000226343A09A7.png" width="465" height="256" style="display:inline-block; margin:4px;width:12.303cm;height:6.77cm;" class="odt-zoomable" data-zoom-src="images/10000000000003E400000226343A09A7.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<ul>
+<li>在 [1] 中，这是一个 POST 请求；</li>
+<li>在 [2] 中，是被请求的 URL；</li>
+<li>在 [3-4] 中，提交了三个值；</li>
+</ul>
+<p>jSON 响应如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000003DC00000292646CB948.png" width="461" height="307" style="display:inline-block; margin:4px;width:12.197cm;height:8.123cm;" class="odt-zoomable" data-zoom-src="images/10000000000003DC00000292646CB948.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>多次运行该请求，每次更改提交的值。完成后，运行请求 [list-simulations-500]，它将显示您已执行的模拟列表：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000484000001D8BFB5BCE4.png" width="578" height="235" style="display:inline-block; margin:4px;width:15.289cm;height:6.227cm;" class="odt-zoomable" data-zoom-src="images/1000000000000484000001D8BFB5BCE4.png" /></td></tr></table>
+
+<ul>
+<li>GET 请求 [1-4] 只有一个参数：[action]。jSON 响应如下：</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002A600000419B6784BFB.png" width="339" height="525" style="display:inline-block; margin:4px;width:8.969cm;height:13.878cm;" class="odt-zoomable" data-zoom-src="images/10000000000002A600000419B6784BFB.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>这就是您已执行的模拟的列表。</p>
+<p>使用查询 [delete-simulation-600] 删除一个模拟：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000004C8000002088796A8C4.png" width="612" height="260" style="display:inline-block; margin:4px;width:16.191cm;height:6.879cm;" class="odt-zoomable" data-zoom-src="images/10000000000004C8000002088796A8C4.png" /></td></tr></table>
+
+<ul>
+<li>在 [2] 中，使用 GET 查询 URL。它包含两个参数 [action, number]。[number] 是您想从模拟列表中删除的模拟的编号。这里，编号 0 指的是列表中的第一个模拟；</li>
+</ul>
+<p>服务器的 jSON 响应如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002A1000002E6FA9A8F20.png" width="337" height="371" style="display:inline-block; margin:4px;width:8.904cm;height:9.816cm;" class="odt-zoomable" data-zoom-src="images/10000000000002A1000002E6FA9A8F20.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>jSON 响应是删除其中一个模拟之后剩余的模拟列表；</p>
+<p>最后，您可以使用请求 [end-session-400] 结束会话：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000046B0000022EE2E381F9.png" width="420" height="207" style="display:inline-block; margin:4px;width:11.104cm;height:5.477cm;" class="odt-zoomable" data-zoom-src="images/100000000000046B0000022EE2E381F9.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>查询 URL [1-2] 只有参数 [action]（3）。jSON 响应如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000003600000014BBAD0269D.png" width="294" height="112" style="display:inline-block; margin:4px;width:7.766cm;height:2.976cm;" class="odt-zoomable" data-zoom-src="images/10000000000003600000014BBAD0269D.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<h3 id="462-curl-测试">4.6.2. <span style="color: #2e74b5">curl 测试</span></h3>
+<p>我们也可以使用 [curl] 工具来测试服务器的 jSON 服务。以下所有请求都使用同一个 HTTP 会话（<span style="color: #9a3412">-b/-c cookies.txt </span>选项在 <span style="color: #9a3412">curl </span>中会在调用之间保留会话 Cookie，就像浏览器或 Postman 所做的那样）：</p>
+<p>我们用 <span style="color: #9a3412">[init-session]</span> 操作来启动一个 jSON 会话：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl -c cookies.txt "http://localhost:3000/main.php?action=init-session&amp;type=json"
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"init-session"</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">"session started with type [json]"</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>状态码<span style="color: #9a3412"> 700 </span>确认会话已启动——这与 PHP 服务器返回的代码相同。现在我们使用 <span style="color: #9a3412">[authenticate-user]</span> 操作进行身份验证——这是一个 <span style="color: #9a3412">POST</span> 请求，URL 中只有一个参数（<span style="color: #9a3412">action</span>），外加提交的凭据：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl -b cookies.txt -c cookies.txt -X POST "http://localhost:3000/main.php?action=authenticate-user" \
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>     -d "user=admin&amp;password=admin"
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authenticate-user"</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Authentication successful [admin, admin]"</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>现在您可以使用操作 [calculate-tax] 来计算税款，这同样是一个 POST 请求<span style="color: #9a3412"> </span>，带有三个提交的参数：<span style="color: #9a3412">婚姻状况</span>、<span style="color: #9a3412">子女数、</span>和 <span style="color: #9a3412">年薪</span>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>curl -b cookies.txt -c cookies.txt -X POST "http://localhost:3000/main.php?action=calculate-tax" \
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>     -d "married=yes&amp;children=2&amp;salary=45000"
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calculate-tax"</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nt">"married"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="nt">"children"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="nt">"salary"</span><span class="p">:</span><span class="w"> </span><span class="mi">45000</span><span class="p">,</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="nt">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">502</span><span class="p">,</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="nt">"surcharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">857</span><span class="p">,</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="nt">"reduction"</span><span class="p">:</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.14</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="p">}</span>
+</code></pre></div>
+<p>这些值与上一节中在浏览器里显示的完全相同（税款 502 欧元、减免 857 欧元、扣减 126 欧元、税率 14%）——HTML 和 jSON 两个版本共用同一个计算引擎。模拟列表通过操作 <span style="color: #9a3412">[list-simulations]</span>获得，这是一个简单的 <span style="color: #9a3412">GET</span>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>curl -b cookies.txt -c cookies.txt "http://localhost:3000/main.php?action=list-simulations"
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list-simulations"</span><span class="p">,</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">      </span><span class="nt">"married"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w"> </span><span class="nt">"children"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">"salary"</span><span class="p">:</span><span class="w"> </span><span class="mi">45000</span><span class="p">,</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">      </span><span class="nt">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">502</span><span class="p">,</span><span class="w"> </span><span class="nt">"surcharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">857</span><span class="p">,</span><span class="w"> </span><span class="nt">"reduction"</span><span class="p">:</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w"> </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.14</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>多次运行查询 <span style="color: #9a3412">[calculate-tax] </span>并更改提交的值，然后使用 <span style="color: #9a3412">[delete-simulation] </span>从列表中移除一个模拟（<span style="color: #9a3412">&amp;number=x </span>指它的序号），并使用 <span style="color: #9a3412">[get-admindata] </span>以 jSON 格式检索整个数据库（税率档次和计算常量）。最后，使用操作 <span style="color: #9a3412">[end-session]</span>结束会话：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>curl -b cookies.txt -c cookies.txt "http://localhost:3000/main.php?action=end-session"
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end-session"</span><span class="p">,</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">"session deleted"</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>您现在已经很好地了解了 NestJS 税款计算服务器所公开的 jSON API——它与 PHP 服务器的完全相同。接下来我们可以开始编写查询该服务器的 TypeScript 脚本了。</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 Anthropic 的 AI <strong>Claude</strong> 编写，并经 <strong>Serge Tahé</strong> 审阅，根据
+        <em>知识共享署名 – 禁止商业使用 –
+        共享 3.0 未本地化版</em>的条款向公众开放。
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
